@@ -22,17 +22,17 @@ jobs:
           root: .
           paths:
             - node_modules
-  build:
-    <<: *defaults
-    steps:
-      - checkout
-      - attach_workspace:
-          at: .
-      - run: npm run build
-      - persist_to_workspace:
-          root: .
-          paths:
-            - build
+  # build:
+  #   <<: *defaults
+  #   steps:
+  #     - checkout
+  #     - attach_workspace:
+  #         at: .
+  #     - run: npm run build
+  #     - persist_to_workspace:
+  #         root: .
+  #         paths:
+  #           - build
   tu:
     <<: *defaults
     steps:
@@ -105,18 +105,18 @@ workflows:
   build_accept_deploy:
     jobs:
       - prepare
-      - lint:
-          requires:
-            - prepare
-      - build:
-          requires:
-            - lint
-      - tu:
-          requires:
-            - build
-      - e2e:
-          requires:
-            - build
+      # - lint:
+      #     requires:
+      #       - prepare
+      # # - build:
+      # #     requires:
+      # #       - lint
+      # # - tu:
+      # #     requires:
+      # #       - build
+      # - e2e:
+      #     requires:
+      #       - build
       - deploy-github:
           requires:
             - tu
