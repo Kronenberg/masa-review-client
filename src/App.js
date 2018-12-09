@@ -1,25 +1,22 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
+import store from './store/store'
 
 class App extends Component {
+
+  onClickIncrement = () => {
+    store.dispatch({type: 'INCREMENT'});
+  };
+  onClickDecrement = () => {
+    store.dispatch({type: 'DECREMENT'});
+  };
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <h1>COUNTER</h1>
+        <button onClick={this.onClickIncrement}>INCEREMENT</button>
+        <button onClick={this.onClickDecrement}>DECREMENT</button>
       </div>
     );
   }
