@@ -6,9 +6,12 @@ class App extends Component {
 
   onClickIncrement = () => {
     store.dispatch({type: 'INCREMENT'});
+    console.log(store.getState());
   };
+
   onClickDecrement = () => {
     store.dispatch({type: 'DECREMENT'});
+    console.log(store.getState());
   };
 
   render() {
