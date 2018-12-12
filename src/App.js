@@ -1,8 +1,11 @@
 import React, {Component} from 'react';
 import './App.css';
-import store from './store/store'
+import store from './store/store';
+import {increment, decrement} from './actions/actions';
+import { connect } from "react-redux";
 
 class App extends Component {
+
 
   onClickIncrement = () => {
     store.dispatch({type: 'INCREMENT'});
