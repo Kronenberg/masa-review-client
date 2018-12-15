@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import './App.css';
 import Form from './components/form/'
 import 'bootstrap/dist/css/bootstrap.css';
-import emails from './components/form/emails';
 import formValidator from './tools/formValidator';
 
 class App extends Component {
@@ -74,7 +73,6 @@ class App extends Component {
                     change4={this._onChangeInputPass}
                     change5={this._onChangeInputConPass}
                     nameValid={this.state.nameValid}
-                    emails={emails}
                     formValid={this.state.formValid}
                 />
             </div>
