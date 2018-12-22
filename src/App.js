@@ -11,11 +11,8 @@ class App extends Component {
   constructor(props){
     super(props);
   }
-  onClickHome = () => {
-    this.props.updateLocation("/")
-  }
-  onClickNews = () => {
-    this.props.updateLocation("news")
+  onClickLink = (value) => {
+    this.props.updateLocation(value)
   }
   render() {
     return (
@@ -23,10 +20,10 @@ class App extends Component {
         <div className="App">
           <h1>LOCATION: {this.props.navigation.location}</h1>
           <li>
-            <Link to="/" onClick={this.onClickHome}>HOME</Link>
+            <Link to="/" onClick={()=> {this.onClickLink('home')}}>HOME</Link>
           </li>
           <li>
-            <Link to="/news" onClick={this.onClickNews}>NEWS</Link>
+            <Link to="/news" onClick={()=> {this.onClickLink('news')}}>NEWS</Link>
           </li>
           <Route path="/" exact component={Home}/>
           <Route path="/news" component={News}/>
